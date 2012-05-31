@@ -1,0 +1,193 @@
+CMD: P(my_name, 2) 
+CMD: D 
+***************************** HashTable ********************
+HashTable Summary: liveCount=1 Count=2 Size=8
+------------------------------------------------------------
+      HashIndex          Value       keyIndex String
+              5              2              1 my_name
+************************************************************
+CMD: P(is_anthony, 34) 
+CMD: T=2 
+CMD: P(gonzalves, 123456) 
+*** OBSERVE Expansion: size = 16
+TRACE: Resize: (size=8, newSize=16), needCompact=0
+TRACE: qs=my_name, h=-1204701051 h1=5
+TRACE: qs=is_anthony, h=1184281439 h1=15
+TRACE: qs=gonzalves, h=1635429191 h1=7
+TRACE: Put: qs=gonzalves, hashIndex=7 keyIdx=-1
+CMD: P(str1, 1) 
+TRACE: qs=str1, h=2571060 h1=4
+TRACE: Put: qs=str1, hashIndex=4 keyIdx=-1
+CMD: P(st1r, 1) 
+TRACE: qs=st1r, h=2569106 h1=2
+TRACE: Put: qs=st1r, hashIndex=2 keyIdx=-1
+CMD: D 
+***************************** HashTable ********************
+HashTable Summary: liveCount=5 Count=6 Size=16
+------------------------------------------------------------
+      HashIndex          Value       keyIndex String
+              2              1              5 st1r
+              4              1              4 str1
+              5              2              1 my_name
+              7         123456              3 gonzalves
+             15             34              2 is_anthony
+************************************************************
+CMD: P(str2, 2) 
+TRACE: qs=str2, h=2571061 h1=5
+TRACE: qs=str2, g=301965 
+TRACE: Put: qs=str2, hashIndex=12 keyIdx=-1
+CMD: D 
+***************************** HashTable ********************
+HashTable Summary: liveCount=6 Count=7 Size=16
+------------------------------------------------------------
+      HashIndex          Value       keyIndex String
+              2              1              5 st1r
+              4              1              4 str1
+              5              2              1 my_name
+              7         123456              3 gonzalves
+             12              2              6 str2
+             15             34              2 is_anthony
+************************************************************
+CMD: P(str3, 3) 
+TRACE: qs=str3, h=2571062 h1=6
+TRACE: Put: qs=str3, hashIndex=6 keyIdx=-1
+CMD: D 
+***************************** HashTable ********************
+HashTable Summary: liveCount=7 Count=8 Size=16
+------------------------------------------------------------
+      HashIndex          Value       keyIndex String
+              2              1              5 st1r
+              4              1              4 str1
+              5              2              1 my_name
+              6              3              7 str3
+              7         123456              3 gonzalves
+             12              2              6 str2
+             15             34              2 is_anthony
+************************************************************
+CMD: P(str4, 4) 
+TRACE: qs=str4, h=2571063 h1=7
+TRACE: qs=str4, g=301967 
+TRACE: Put: qs=str4, hashIndex=3 keyIdx=-1
+CMD: D 
+***************************** HashTable ********************
+HashTable Summary: liveCount=8 Count=9 Size=16
+------------------------------------------------------------
+      HashIndex          Value       keyIndex String
+              2              1              5 st1r
+              3              4              8 str4
+              4              1              4 str1
+              5              2              1 my_name
+              6              3              7 str3
+              7         123456              3 gonzalves
+             12              2              6 str2
+             15             34              2 is_anthony
+************************************************************
+CMD: T=0 
+CMD: P(str5, 5) 
+CMD: P(str6, 6) 
+CMD: P(str7, 7) 
+*** OBSERVE Expansion: size = 32
+CMD: D 
+***************************** HashTable ********************
+HashTable Summary: liveCount=11 Count=12 Size=32
+------------------------------------------------------------
+      HashIndex          Value       keyIndex String
+              5              2              1 my_name
+              7         123456              3 gonzalves
+             18              1              5 st1r
+             20              1              4 str1
+             21              2              6 str2
+             22              3              7 str3
+             23              4              8 str4
+             24              5              9 str5
+             25              6             10 str6
+             26              7             11 str7
+             31             34              2 is_anthony
+************************************************************
+CMD: P(str8, 8) 
+CMD: D 
+***************************** HashTable ********************
+HashTable Summary: liveCount=12 Count=13 Size=16
+------------------------------------------------------------
+      HashIndex          Value       keyIndex String
+              2              1              5 st1r
+              3              4              8 str4
+              4              1              4 str1
+              5              2              1 my_name
+              6              3              7 str3
+              7         123456              3 gonzalves
+              8              5              9 str5
+              9              6             10 str6
+             10              7             11 str7
+             11              8             12 str8
+             12              2              6 str2
+             15             34              2 is_anthony
+************************************************************
+CMD: R(str5) 
+CMD: R(str3) 
+CMD: R(str2) 
+CMD: R(str1) 
+CMD: D 
+***************************** HashTable ********************
+HashTable Summary: liveCount=8 Count=13 Size=16
+------------------------------------------------------------
+      HashIndex          Value       keyIndex String
+              2              1              5 st1r
+              3              4              8 str4
+              4              1             -4
+              5              2              1 my_name
+              6              3             -7
+              7         123456              3 gonzalves
+              8              5             -9
+              9              6             10 str6
+             10              7             11 str7
+             11              8             12 str8
+             12              2             -6
+             15             34              2 is_anthony
+************************************************************
+CMD: C 
+CMD: D 
+***************************** HashTable ********************
+HashTable Summary: liveCount=8 Count=9 Size=32
+------------------------------------------------------------
+      HashIndex          Value       keyIndex String
+              5              2              1 my_name
+              7         123456              3 gonzalves
+             18              1              4 st1r
+             23              4              5 str4
+             25              6              6 str6
+             26              7              7 str7
+             27              8              8 str8
+             31             34              2 is_anthony
+************************************************************
+CMD: R(gonzalves) 
+CMD: D 
+***************************** HashTable ********************
+HashTable Summary: liveCount=7 Count=9 Size=32
+------------------------------------------------------------
+      HashIndex          Value       keyIndex String
+              5              2              1 my_name
+              7         123456             -3
+             18              1              4 st1r
+             23              4              5 str4
+             25              6              6 str6
+             26              7              7 str7
+             27              8              8 str8
+             31             34              2 is_anthony
+************************************************************
+*** OBSERVE Compaction: size = 16
+CMD: P(str11, 11) 
+CMD: D 
+***************************** HashTable ********************
+HashTable Summary: liveCount=8 Count=9 Size=16
+------------------------------------------------------------
+      HashIndex          Value       keyIndex String
+              0             11              8 str11
+              2              1              3 st1r
+              5              2              1 my_name
+              7              4              4 str4
+              9              6              5 str6
+             10              7              6 str7
+             11              8              7 str8
+             15             34              2 is_anthony
+************************************************************

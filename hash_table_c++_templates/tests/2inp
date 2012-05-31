@@ -1,0 +1,32 @@
+P my_name 2
+D
+P is_anthony 34
+T 2
+P gonzalves 123456
+P str1 1
+P st1r 1
+D
+P str2 2
+D
+P str3 3
+D
+P str4 4
+D
+T 0
+P str5 5
+P str6 6
+P str7 7
+D
+P str8 8
+D
+R str5
+R str3
+R str2
+R str1
+D
+C
+D
+R gonzalves 
+D
+P str11 11
+D

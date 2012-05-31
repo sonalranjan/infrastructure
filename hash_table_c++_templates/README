@@ -1,0 +1,37 @@
+
+Intro:
+    This is an implementation of HashTable with Get/Put/Remove. 
+    This implementation assumes, user owned storage of string (pointers)
+    Note: Hash adjusts the size as necessary. Compact/Resize can be
+    explcitly invoked. Or it is triggered while doing Put(). [ Remove()
+    does not trigger a Resize() ]
+
+
+TO MAKE: 
+    make ( or make exe)
+
+TO RUN:
+    ./exe 
+    ./exe tests/1inp 
+    ./exe tests/2inp
+    
+
+MANIFEST:
+
+    hash.h : template class HashTable resides here
+    hash_use.cxx : has main() function, driver function, Test harnesses etc
+    Makefile: 
+    
+    tests:
+        1inp: simple
+        2inp: a more complex test that showcases **expansion** and
+	      **compaction** of HashTable
+	OUTPUT.2inp: sample output file with annotations
+
+Command File Syntax:
+P str val : Hash.Put(str,val)
+D         : Print HashTable
+G str     : Hash.Get(str, INOUT val)
+T level   : set trace level
+R str     : Hash.Remove(str)
+C         : try to Compact/Resize/Expand
